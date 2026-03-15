@@ -3,17 +3,17 @@ pub fn datatypes() {
     let my_name: &str = "Avinash";
     // lets us print with tab
     println!("Name after the tab is\t{my_name}.");
-    //lets do ine more examples with printing the file path. We will use r as "Raw string literal"
+    //lets do more examples with printing the file path. We will use r as "Raw string literal"
     let filepath: &str = r"/users/Desktop/Rust/Hello-World";
     println!("The file is located at {filepath}.");
-    // lets do some examples with casting.Casting is done addind as syntax.
+    // lets do some examples with casting.Casting is done adding as syntax.
     let miles_away: i32 = 50;
-    let miles_away_i8: i8 = miles_away as i8;
-    let miles_away_u8: u8 = miles_away as u8;
+    let miles_away: i8 = miles_away as i8;
+    let miles_away: u8 = miles_away as u8;
     println!("The new value with {miles_away}.");
     // we can also change the data types with casting
     let miles_away: i32 = 51;
-    let miles_away_float: f32 = miles_away as f32;
+    let miles_away: f32 = miles_away as f32;
 
     // Character (:char) type
     let first_character: char = 'A'; // should be only one character. it is only 4 byte.
@@ -44,7 +44,7 @@ pub fn datatypes() {
         numbers, products
     );
 
-    println!("You can see the changes with the casting.\nThe final value is {miles_away_float}.");
+    println!("You can see the changes with the casting.\nThe final value is {miles_away}.");
 
     // Tuple types
     let info: (&str, i32, &str) = ("Prashanta", 29, "Rust");
