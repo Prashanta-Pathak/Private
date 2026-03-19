@@ -157,7 +157,7 @@ pub fn structure() {
             );
         }
 
-        //Mutable Struct value( Self parameter takes ownership and can be mutable)
+        // Mutable Struct value( Self parameter takes ownership and can be mutable)
         fn change_duration_to_mins(mut self) {
             self.duration /= 60;
             println!("{} mins ", self.duration);
@@ -275,4 +275,96 @@ pub fn structure() {
         my_computer.brand, my_computer.cpu, my_computer.memory, my_computer.ssd,
     );
     println!("{:#?}", my_computer);
+
+    // Lets see some tuple struct.
+    #[derive(Debug)]
+    struct WorkingHours(i32, i32);
+    struct WorkingPeriod(i32, i32);
+
+    let work_shift: WorkingHours = WorkingHours(8, 0); // initialises tuple struct instances
+    let work_duration: WorkingPeriod = WorkingPeriod(1, 3);
+
+    println!("{} hours {} minutes", work_shift.0, work_shift.1);
+    println!("{} Years {} months", work_duration.0, work_duration.1);
+
+    impl WorkingHours {
+        fn new(hours: i32, mins: i32) -> Self {
+            Self(hours, mins)
+        }
+
+        fn hours_worked(&self) -> &Self {
+            println!("{} Hours | {} Mins", self.0, self.1);
+            self
+        }
+    }
+
+    impl WorkingPeriod {
+        fn new(years: i32, months: i32) -> Self {
+            Self(years, months)
+        }
+        fn work_duration(&self) -> &Self {
+            println!("{} Years | {} Months", self.0, self.1);
+            self
+        }
+    }
+
+    let new_schedule = WorkingHours::new(6, 45);
+    let worked_history: WorkingPeriod = WorkingPeriod::new(3, 4);
+    println!("{:?}", new_schedule);
+    new_schedule.hours_worked();
+    worked_history.work_duration();
+
+    // Lets do some small projects.
+    #[derive(Debug)]
+    struct Flight {
+        origin: String,
+        destination: String,
+        price: f64,
+        passengers: u32,
+    }
+
+    impl Flight {
+        fn new(origin: String, destination: String, price: f64, passengers: u32) -> Self {
+            Self {
+                origin,
+                destination,
+                price,
+                passengers,
+            }
+        }
+
+        fn change_destination(&mut self, new_destination: String) -> &mut Self {
+            self.destination = new_destination;
+            self
+        }
+        fn increase_price(&mut self) -> &Self {
+            self.price *= 1.20;
+            self
+        }
+        fn itinerary(&self) -> &Self {
+            println!(
+                "{} -> {} -> {} Passenger",
+                self.origin, self.destination, self.passengers
+            );
+            self
+        }
+    }
+
+    let mut flight_details: Flight =
+        Flight::new(String::from("Finland"), String::from("Nepal"), 900.00, 1);
+    println!("{:#?}", flight_details);
+
+    flight_details
+        .change_destination(String::from("Chitwan"))
+        .increase_price()
+        .itinerary();
+
+    
+// This below syntax is creating new struct by copying some fields from previous struct instance. also called update struct.
+    let flight_details2: Flight = Flight {
+        origin: String::from("Ktm"),
+        destination: String::from("Hel"),
+        ..flight_details
+    };
+    println!("{:#?}", flight_details2);
 }
