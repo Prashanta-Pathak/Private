@@ -7,6 +7,7 @@
 // mod scope;
 //mod slices;
 // mod variable;
+mod enums;
 mod structs;
 
 fn main() {
@@ -20,4 +21,5 @@ fn main() {
     // ownership::ownership();
     // slices::slices();
     structs::structure();
+    enums::enumurate();
 }
