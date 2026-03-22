@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+#![allow(unused)]
 // mod controlflow;
 // mod datatypes;
 // mod exercise;
@@ -8,7 +10,7 @@
 //mod slices;
 // mod variable;
 mod enums;
-mod structs;
+//mod structs;
 
 fn main() {
     // variable::variable_example();
@@ -20,6 +22,6 @@ fn main() {
     // controlflow::controlflow();
     // ownership::ownership();
     // slices::slices();
-    structs::structure();
+    //structs::structure();
     enums::enumurate();
 }
