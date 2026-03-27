@@ -9,8 +9,9 @@
 // mod scope;
 //mod slices;
 // mod variable;
-mod enums;
+//mod enums;
 //mod structs;
+mod generics;
 
 fn main() {
     // variable::variable_example();
@@ -23,5 +24,6 @@ fn main() {
     // ownership::ownership();
     // slices::slices();
     //structs::structure();
-    enums::enumurate();
+    //enums::enumurate();
+    generics::generics();
 }
