@@ -116,11 +116,9 @@ pub fn generics() {
         time: String,
     }
     impl ChatMessage<DigitalContent> {
-        fn consume_entertainment(&self) -> String {
-            match &self.content {
-                DigitalContent::AudioFile => String::from("Playing the Audio"),
-                DigitalContent::VideoFile => String::from("Playing the video"),
-            }
+        fn consume_entertainment(&self) -> &Self {
+            println!("Watching the {:?}", self.content);
+            self
         }
     }
 
@@ -144,12 +142,8 @@ pub fn generics() {
         time: String::from("5min"),
     };
 
-    messg2.consume_entertainment();
-    messg1.retrive_time();
-    messg2.retrive_time();
-    messg.retrive_time();
     println!(
-        " Generics with Enum Value:{} | String Generics {} | String Generics: {} | String Generics: {}",
+        " Generics with Enum Value: {:?} | String Generics {} | String Generics: {} | String Generics: {}",
         messg2.consume_entertainment(),
         messg1.retrive_time(),
         messg2.retrive_time(),

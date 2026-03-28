@@ -2,16 +2,17 @@
 #![allow(unused)]
 // mod controlflow;
 // mod datatypes;
+// mod enums;
 // mod exercise;
 // mod functions;
+//mod generics;
 // mod muteshadow;
 // mod ownership;
 // mod scope;
-//mod slices;
+// mod slices;
+// mod structs;
 // mod variable;
-//mod enums;
-//mod structs;
-mod generics;
+mod optionresultenums;
 
 fn main() {
     // variable::variable_example();
@@ -23,7 +24,8 @@ fn main() {
     // controlflow::controlflow();
     // ownership::ownership();
     // slices::slices();
-    //structs::structure();
-    //enums::enumurate();
-    generics::generics();
+    // structs::structure();
+    // enums::enumurate();
+    //generics::generics();
+    optionresultenums::optionresult();
 }
