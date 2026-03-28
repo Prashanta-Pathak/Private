@@ -1,4 +1,4 @@
-use std::ops::Index;
+use std::collections::btree_map::Values;
 
 pub fn optionresult() {
     // Quick intro to options and enums.
@@ -68,5 +68,83 @@ pub fn optionresult() {
         Some(true) => println!("The item is available."),
         Some(false) => println!("The item is not available in stock."),
         None => println!("its not available in the system."),
+    }
+
+    let in_store = Some("apples");
+    let out_of_store: Option<&str> = None;
+
+    println!(
+        "we have {} in the store.",
+        in_store.unwrap_or("Out of Stock")
+    );
+    println!(
+        "we dont have this product {}.",
+        out_of_store.unwrap_or("Not available.")
+    );
+
+    // lets write our own Option enum.
+
+    #[derive(Debug, Copy, Clone)]
+    enum MyOption {
+        Some(i32),
+        None,
+    }
+
+    impl MyOption {
+        fn no_wrap(self) -> i32 {
+            match self {
+                MyOption::Some(param) => param,
+                MyOption::None => panic!("oh noooo"),
+            }
+        }
+        fn no_wrap_or(self, callback: i32) -> i32 {
+            match self {
+                MyOption::Some(param) => param,
+                MyOption::None => callback,
+            }
+        }
+    }
+
+    let new_doc = MyOption::Some(10);
+    println!("{:?}", new_doc.no_wrap());
+
+    let doc1 = MyOption::None;
+    println!("{}", doc1.no_wrap_or(11));
+
+    // Lets move on to Result enum now.
+
+    let is_valid: Result<i32, &str> = Result::Ok(5);
+    let is_not_valid: Result<i32, &str> = Result::Err("Empty");
+
+    println!("{:?}", is_valid);
+    println!("{:?}", is_not_valid);
+
+    let string_interger1: &str = "32";
+    let converted_string_integer1 = string_interger1.parse::<i32>();
+    println!("{}", string_interger1);
+    println!("{:?}", converted_string_integer1);
+
+    let string_interger: &str = "hello";
+    let converted_string_integer = string_interger.parse::<i32>();
+
+    println!("{}", string_interger);
+    println!("{:?}", converted_string_integer);
+
+    // lets see some exapmles of result enum in functions,
+
+    fn calculate(num1: f64, num2: f64) -> Result<f64, String> {
+        if num2 == 0.0 {
+            Err("Cannot do calculation".to_string())
+        } else {
+            Ok(num1 / num2)
+        }
+    }
+
+    let calc = calculate(10.0, 0.0);
+    //println!("{:?}", calc);
+
+    match calc {
+        Err(messg) => println!("{}", messg),
+        Ok(value) => println!("Division answer {}", value),
     }
 }
