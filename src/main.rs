@@ -12,7 +12,8 @@
 // mod slices;
 // mod structs;
 // mod variable;
-mod optionresultenums;
+// mod optionresultenums;
+mod vectors;
 
 fn main() {
     // variable::variable_example();
@@ -27,5 +28,6 @@ fn main() {
     // structs::structure();
     // enums::enumurate();
     //generics::generics();
-    optionresultenums::optionresult();
+    // optionresultenums::optionresult();
+    vectors::vectors();
 }
