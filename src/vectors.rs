@@ -1,5 +1,3 @@
-use std::{collections::btree_map::Range, vec};
-
 pub fn vectors() {
     let car_brands: Vec<&str> = vec!["Audi", "BMW", "Toyota", "lexus", "Mercedes"];
     let registration_numbers: Vec<i32> = vec![1221, 3212, 3233, 4321, 4325];
@@ -157,7 +155,27 @@ pub fn vectors() {
         }
 
         fn get_file(&self, i: usize) -> Option<&File> {
-            self.content.get(i)
+            let val = self.content.get(i);
+            match val {
+                Some(i) => {
+                    println!(" Found: {:?} ", i);
+                    Some(i)
+                }
+
+                None => {
+                    println!("Cannot not find");
+                    None
+                }
+            }
         }
     }
+
+    let mut my_folder = Folder::new(String::from("Rust"));
+    my_folder.create_file(String::from("Exercise"));
+    my_folder.create_file(String::from("Solution"));
+    my_folder.create_file(String::from("Question"));
+    my_folder.create_file("Brainstrom".to_string());
+    let s1 = my_folder.delete_file(2);
+
+    println!(" {:#?} ", s1);
 }
