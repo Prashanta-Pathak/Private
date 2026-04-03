@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused)]
+
+use std::string;
 // mod controlflow;
 // mod datatypes;
 // mod enums;
@@ -13,7 +15,8 @@
 // mod structs;
 // mod variable;
 // mod optionresultenums;
-mod vectors;
+mod strings;
+// mod vectors;
 
 fn main() {
     // variable::variable_example();
@@ -29,5 +32,6 @@ fn main() {
     // enums::enumurate();
     //generics::generics();
     // optionresultenums::optionresult();
-    vectors::vectors();
+    // vectors::vectors();
+    strings::strings();
 }
