@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused)]
 
+use core::hash;
 use std::string;
 // mod controlflow;
 // mod datatypes;
@@ -15,8 +16,9 @@ use std::string;
 // mod structs;
 // mod variable;
 // mod optionresultenums;
-mod strings;
+// mod strings;
 // mod vectors;
+mod hashmap;
 
 fn main() {
     // variable::variable_example();
@@ -33,5 +35,6 @@ fn main() {
     //generics::generics();
     // optionresultenums::optionresult();
     // vectors::vectors();
-    strings::strings();
+    // strings::strings();
+    hashmap::hashmap();
 }
