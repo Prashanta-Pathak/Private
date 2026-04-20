@@ -89,27 +89,17 @@ pub fn hashmap() {
     }
 
     my_set.insert("Data");
-    let if_avail = my_set.contains("Data"); // -> rerturn bool
+    let if_avail = my_set.contains("Data"); // -> return bool
     println!("{}", if_avail);
 
     // Exercise.....................
 
-    let mut sauces_to_meals: HashMap<&str, Vec<&str>> =
-        HashMap::new([
-        (   "Ketchup", 
-            vec!["French Fries", "Burgers", "Hot Dogs"],
-        ),
-        (   "Mayonnaise",
-            vec!["Sandwiches", "Burgers", "Coleslaw"],
+    let mut sauces_to_meals: HashMap<&str, Vec<&str>> = HashMap::from([
+        ("ketchup", vec!["French Fries", "Burgers", "Hot Dogs"]),
+        ("Mayonnaise", vec!["Sandwiches", "Burgers", "Coleslaw"]),
+    ]);
 
-        )
-    
-    
-    );
-
-    , []);
-
-    sauces_to_meals.insert("Mustard", ["Hot dog", "Burgers", "Pretzels"]);
+    sauces_to_meals.insert("Mustard", vec!["Hot dog", "Burgers", "Pretzels"]);
 
     println!("{:#?}", sauces_to_meals);
 
@@ -127,5 +117,7 @@ pub fn hashmap() {
 
     sauces_to_meals
         .entry("Soy Sauce")
-        .or_insert(["Sushi", "Dumplings"]);
+        .or_insert(vec!["Sushi", "Dumplings"]);
+
+    println!("{:#?}", sauces_to_meals);
 }

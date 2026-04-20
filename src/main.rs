@@ -18,7 +18,8 @@ use std::string;
 // mod optionresultenums;
 // mod strings;
 // mod vectors;
-mod hashmap;
+// mod hashmap;
+mod errorhandling;
 
 fn main() {
     // variable::variable_example();
@@ -32,9 +33,10 @@ fn main() {
     // slices::slices();
     // structs::structure();
     // enums::enumurate();
-    //generics::generics();
+    // generics::generics();
     // optionresultenums::optionresult();
     // vectors::vectors();
     // strings::strings();
-    hashmap::hashmap();
+    // hashmap::hashmap();
+    errorhandling::errorhand();
 }
