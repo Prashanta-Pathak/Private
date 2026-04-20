@@ -77,4 +77,34 @@ pub fn errorhand() {
 
         fs::read_to_string(file_name.trim()) // -> Simple and effective way.
     }
+
+    // We can also use ? try operator for option enum..lets see with an example.
+
+    let mut my_collection: Vec<&str> = vec!["London", "Norway", "Helsinki", "Nepal"];
+    fn show_output(item: &mut Vec<&str>) -> Option<usize> {
+        let output: &str = item.pop()?;
+        let final_output = output.len();
+        Some(final_output)
+    }
+    println!("{:?}", show_output(&mut my_collection));
+
+    // Exercise.................
+
+    fn write_to_file() -> io::Result<String> {
+        println!("What file would you like to write to?");
+        let mut file_entry = String::new();
+        stdin().read_line(&mut file_entry)?;
+
+        println!("What would you like to write to the file?");
+        let mut content_entry = String::new();
+        stdin().read_line(&mut content_entry)?;
+
+        fs::write(file_entry.trim(), content_entry.trim())?;
+        Ok(file_entry)
+    }
+
+    match write_to_file() {
+        Ok(val) => println!("Successfully wrote to file {}", val),
+        Err(error) => eprintln!("There was an error:{error}"),
+    }
 }
