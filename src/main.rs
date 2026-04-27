@@ -19,8 +19,8 @@ use std::string;
 // mod strings;
 // mod vectors;
 // mod hashmap;
-mod errorhandling;
-
+// mod errorhandling;
+mod traits;
 fn main() {
     // variable::variable_example();
     // muteshadow::mutable_and_shadowing();
@@ -38,5 +38,6 @@ fn main() {
     // vectors::vectors();
     // strings::strings();
     // hashmap::hashmap();
-    errorhandling::errorhand();
+    // errorhandling::errorhand();
+    traits::traits();
 }
