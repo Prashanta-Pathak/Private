@@ -53,8 +53,18 @@ pub fn traits() {
     }
 
     // Passing traits as a funtion parameter.....
-    fn book_for_one_night(entity: &mut impl Accommodation, guest: &str) {
+    fn book_for_one_night<T: Accommodation>(entity: &mut T, guest: &str) {
         entity.book(guest, 1);
+    }
+
+    // Trait bound Syntax.......
+    fn mix_and_match<T: Accommodation, U: Accommodation>(
+        first: &mut T,
+        second: &mut U,
+        guest: &str,
+    ) {
+        first.book(guest, 1);
+        second.book(guest, 2);
     }
 
     let mut hotel = Hotel::new("Hilton");
@@ -67,6 +77,7 @@ pub fn traits() {
     let mut airbnb = Airbnb::new("Sweethome");
     println!("{}", airbnb.get_description());
     book_for_one_night(&mut airbnb, "hari");
+    mix_and_match(&mut hotel, &mut airbnb, "Prashanta");
     println!("{:#?}", airbnb);
 
     // airbnb.book("Sita", 4);
